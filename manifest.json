@@ -1,0 +1,12 @@
+{
+  "name": "omarchy-test-plugin",
+  "version": "1.0.0",
+  "description": "Benign test plugin for security research - displays a hello message only",
+  "author": "abrahymnwar461-design",
+  "license": "MIT",
+  "main": "index.js",
+  "omarchy": {
+    "min_version": "1.0.0",
+    "category": "test"
+  }
+}
