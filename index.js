@@ -1,9 +1,19 @@
-// Benign test plugin for Omarchy - security research
-console.log("Hello from omarchy-test-plugin - benign test");
+// TEST 1 - Do plugins have dangerous access?
+console.log("=== TEST 1 START ===");
+console.log("require?", typeof require);
+console.log("process?", typeof process);
 
-function onLoad() {
-  console.log("Test plugin loaded safely");
-  return "Hello, this is a benign test plugin";
+try {
+  const fs = require('fs');
+  console.log("VULNERABLE: fs is accessible!");
+} catch (e) {
+  console.log("SAFE: fs is blocked -", e.message);
 }
 
-module.exports = { onLoad };
+try {
+  const cp = require('child_process');
+  console.log("VULNERABLE: child_process accessible!");
+} catch (e) {
+  console.log("SAFE: child_process blocked -", e.message);
+}
+console.log("=== TEST 1 END ===");
